@@ -2,14 +2,18 @@ This README file contains information on the contents of the meta-bsm layer.
 
 Please see the corresponding sections below for details.
 
+Note: This repo is intended to work with the Colibri iMX8X chipset using the Dunfell 5.x.y BSP files. 
+[Please see this Toradex wiki stub to get started with the correct BSP files](https://developer.toradex.com/linux-bsp/os-development/build-yocto/build-a-reference-image-with-yocto-projectopenembedded).
+If a link references kirkstone-6.x.y, replace with dunfell-5.x.y.
+
 Dependencies
 ============
 
-  URI: <first dependency>
-  branch: <branch name>
+  URI: meta-clang
+  branch: dunfell-clang12
 
-  URI: <second dependency>
-  branch: <branch name>
+  URI: meta-browser
+  branch: master
 
   .
   .
