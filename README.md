@@ -37,12 +37,13 @@ Table of Contents
 I. Adding the meta-bsm layer to your build
 =================================================
 
-1. After setting up the oe-core/ directory with Dunfell tooling (see Toradex link above), goto the `oe-core/` 
+1. After setting up the `oe-core/` directory with Dunfell tooling (see Toradex link above), goto the `oe-core/` 
 directory and type `.export`. This will setup the shell environment for `bitbake`.
 2. Modify `oe-core/build/conf/local.conf`. Pick the correct `MACHINE` and add the `ACCEPT_FSL_EULA = "1"`. See [here](https://developer.toradex.com/linux-bsp/os-development/build-yocto/build-a-reference-image-with-yocto-projectopenembedded) for more info.
 3. In `oe-core/layers/` clone:
   - meta-clang: Make sure to then switch to the dunfell-clang12 branch
   - meta-browser: Master should work
+  - meta-bsm: This repo, master should work
 4. Open up `oe-core/layers/meta-browser/meta-chromium/recipes-browser/chromium/chromium-ozone-wayland*.inc` in a text editor
 5. At the end of the file, add `CXXFLAGS += "-D__GBM__"` ([see thread to follow bug](https://github.com/OSSystems/meta-browser/issues/649))
 6. Edit `oe-core/build/conf/bblayers.conf`:
@@ -51,7 +52,7 @@ directory and type `.export`. This will setup the shell environment for `bitbake
   - Add `meta-clang`
   *Note* - Use the other examples in the file as a template to adding this. `meta-bsm` might look something along like `${DIR}/layers/meta-bsm \`
 7. run `bitbake bsm`. This may take a lot of memory, consider using `PARALLEL_MAKE="-j 4" BB_NUMBER_THREADS="6" bitbake bsm` and replace 4 and 6 
-as needed.
+as needed. On a 32-core, 32GB I used 12 and 12 and no OOM issues.
 8. Wait
 9. Keep waiting
 10. Hopefully no errors. Since this is Toradex, transfer the `oe-core/build/deploy/images/colibri-imx8x/` *tezi*.tar.xz to a USB drive. 
