@@ -10,9 +10,11 @@ Dependencies
 ============
 
   URI: meta-clang
+  
   branch: dunfell-clang12
 
   URI: meta-browser
+  
   branch: master
 
   .
@@ -52,7 +54,7 @@ directory and type `.export`. This will setup the shell environment for `bitbake
   - Add `meta-clang`
   *Note* - Use the other examples in the file as a template to adding this. `meta-bsm` might look something along like `${DIR}/layers/meta-bsm \`
 7. run `bitbake bsm`. This may take a lot of memory, consider using `PARALLEL_MAKE="-j 4" BB_NUMBER_THREADS="6" bitbake bsm` and replace 4 and 6 
-as needed. On a 32-core, 32GB I used 12 and 12 and no OOM issues.
+as needed. On a 32-core, 32GB Linux machine I used 12 and 12 and no OOM issues.
 8. Wait
 9. Keep waiting
 10. Hopefully no errors. Since this is Toradex, transfer the `oe-core/build/deploy/images/colibri-imx8x/` *tezi*.tar.xz to a USB drive. 
@@ -67,3 +69,12 @@ II. Misc
 ========
 
 --- replace with specific information about the meta-bsm layer ---
+
+III. TODO
+========
+- Add Rust recipes
+- Add NodeJS recipes
+- Harden with users
+- Auto update weston.ini
+- Test electron
+- Test Tauri
