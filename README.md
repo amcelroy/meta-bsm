@@ -57,6 +57,11 @@ as needed. On a 32-core, 32GB I used 12 and 12 and no OOM issues.
 9. Keep waiting
 10. Hopefully no errors. Since this is Toradex, transfer the `oe-core/build/deploy/images/colibri-imx8x/` *tezi*.tar.xz to a USB drive. 
 11. Reset the Toradex, plug in the USB, and flash the image. See [here](https://developer.toradex.com/easy-installer/toradex-easy-installer/loading-toradex-easy-installer) for more info.
+12. After flashing, the inital boot should launch to a login.
+13. SSH in, or login, and modify `/etc/xdg/weston/weston.ini`. Set`--backend=wayland-backend.so` and comment out `xwayland=true`.
+13. Reboot
+14. Weston should boot
+15. SSH in and launch `chromium --no-sandbox`.
 
 II. Misc
 ========
